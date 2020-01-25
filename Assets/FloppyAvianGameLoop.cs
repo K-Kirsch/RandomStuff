@@ -42,6 +42,13 @@ public class FloppyAvianGameLoop : MonoBehaviour
         }
     }
 
+    private void GameStart()
+    {
+        textOverlay.SetActive(false);
+        gameRunning = true;
+        playerBird.Reset();
+    }
+
     internal void GameEnd()
     {
         textOverlay.SetActive(true);
@@ -53,13 +60,6 @@ public class FloppyAvianGameLoop : MonoBehaviour
     }
 
     private void AddForceToBird() => playerBird.AddForce();
-
-    private void GameStart()
-    {
-        textOverlay.SetActive(false);
-        gameRunning = true;
-        playerBird.Reset();
-    }
 
 
     /// <summary>

@@ -6,18 +6,11 @@ using UnityEngine;
 public class PlayerBird : MonoBehaviour
 {
     [SerializeField] private float force;
-    private Rigidbody rigidbody;
     [SerializeField] private Vector3 startPosition;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
-    
 
     public void AddForce()
     {
-        rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(Vector3.up * force, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +21,7 @@ public class PlayerBird : MonoBehaviour
 
     internal void Reset()
     {
-        rigidbody.velocity = Vector3.zero;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.position = startPosition;
     }
 }
